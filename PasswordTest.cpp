@@ -32,4 +32,5 @@ TEST(PasswordTest, multi_leading_letters)
 	ASSERT_EQ(2, my_password.count_leading_characters("aaba"));
 	ASSERT_EQ(2, my_password.count_leading_characters("aaAa"));
 	ASSERT_EQ(1, my_password.count_leading_characters("aba"));
+	ASSERT_EQ(0, my_password.count_leading_characters(""));
 }
