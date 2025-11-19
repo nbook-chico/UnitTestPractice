@@ -23,12 +23,6 @@ int Password::count_leading_characters(string phrase){
   return repetition;
 }
 
-
-/*
-  my initial code
-  receives a string and returns whether it has both at least one upper-case
-  letter and at least one lower-case letter
-
 bool Password::has_mixed_case(string pass){
   // This was totally unimplemented  
   bool hasUpper = false;
@@ -41,17 +35,18 @@ bool Password::has_mixed_case(string pass){
   }
   return false;
 }
-*/
-bool Password::has_mixed_case(string str)
+
+unsigned int Password::unique_characters(string s)
 {
-  bool found = false;
-  for(char c : str){
-    if( !found && c >= 'A' && c <= 'Z' ){
-      found = true;
+    bool seen[256] = {false};
+    unsigned int count = 0;
+
+    for (unsigned char c : s)
+    {
+        if (!seen[c]) {
+            seen[c] = true;
+            count++;
+        }
     }
-    else if( found && c >= 'a' && c <= 'z'){
-      return true;
-    }
-  }
-  return false;
+    return count;
 }
